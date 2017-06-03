@@ -47,8 +47,8 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
+* **Adrian Gortzak** - *Developer* - [Adddrian](https://github.com/Adddrian)
+* **Jimmy Fjallid** - *Developer* - [Adddrian](https://github.com/Adddrian)
 
 # Licenses
 
