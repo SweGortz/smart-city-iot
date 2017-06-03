@@ -1,35 +1,22 @@
 # Smart city IoT
 
-todo project description
+Smart City IoT is a visualization tool for IoT data.
 
 ## Getting Started
-
-todo instructions 
+todo
 
 ### Prerequisites
 
-todo 
+To contribute to the project, we recommend that you use The official IDE for Android.
+[Android studio](https://developer.android.com/studio/index.html) 
 
-```
-Give examples
-```
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+To install the application on you phone you can do one of the following:
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
+1. Run the applicaiton on a [virtual device & your own phone by Android studio](https://developer.android.com/studio/run/index.html)
+2. Download the application from [play story](todo)
 
 ## Contributing
 todo - link to wiki
@@ -76,7 +63,7 @@ limitations under the License.
 
 ### Library [google maps api](https://developers.google.com/maps/terms)
 
-### Library Android Support library
+### Library [Android Support library](https://developer.android.com/topic/libraries/support-library/index.html)
 #### Copyright (C) 2011 The Android Open Source Project
  
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -136,12 +123,12 @@ Copyright [yyyy] [name of copyright owner]
    See the License for the specific language governing permissions and
    limitations under the License.
    
-### Library [Javax annotation]()
+### Library Javax annotation
 
 ## License
 
 ### Smart city IOT
-####   Copyright 2017 Gortz
+#### Copyright 2017 Gortz
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
