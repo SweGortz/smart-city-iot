@@ -1,6 +1,6 @@
 <img src="https://github.com/SweGortz/SmartCityIoT/blob/master/wiki/img/web_hi_res_512.png" width="100">
 
-# Smart city IoT
+# Smart City IoT
 Smart City IoT is a visualization tool for IoT data.
 
 <div>
