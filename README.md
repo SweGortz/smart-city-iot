@@ -4,7 +4,7 @@ Smart City IoT is a visualization tool for IoT data.
 
 ## Getting Started
 
-To test the application we recommend that you download it from [google play store](https://play.google.com/store/apps/details?id=org.gortz.greeniot.smartcityiot) and then follow the [usage guide in the wiki](todo)
+To test the application we recommend that you download it from [google play store](https://play.google.com/store/apps/details?id=org.gortz.greeniot.smartcityiot) and then follow the [usage guide in the wiki](https://github.com/SweGortz/SmartCityIoT/wiki/Usages-guide)
 
 ### Prerequisites
 
