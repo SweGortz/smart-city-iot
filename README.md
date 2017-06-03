@@ -3,11 +3,12 @@
 Smart City IoT is a visualization tool for IoT data.
 
 ## Getting Started
-todo
+
+To run the application we recommend that you download it from google [play store](todo) and then follow the [usage guide in the wiki](todo)
 
 ### Prerequisites
 
-To contribute to the project, we recommend that you use the official IDE for Android [Android studio](https://developer.android.com/studio/index.html).
+To be able to run change the application , we recommend that you use the official IDE for Android [Android studio](https://developer.android.com/studio/index.html).
 
 ### Installing
 
@@ -17,7 +18,7 @@ To install the application on you phone you can do one of the following:
 2. Download the application from [play story](todo)
 
 ## Contributing
-todo - link to wiki
+Please read the [developers guide](https://github.com/SweGortz/SmartCityIoT/wiki/Developers-guide) for details on the application structure, and the process for submitting pull requests to us.
 
 ## Authors
 
