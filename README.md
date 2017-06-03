@@ -1,7 +1,7 @@
 <img src="https://github.com/SweGortz/SmartCityIoT/blob/master/wiki/img/web_hi_res_512.png" width="100">
 
 # Smart City IoT
-Smart City IoT is a visualization tool for IoT data.
+Smart City IoT is a visualization tool for real time IoT data.
 
 <div>
 <img src="https://github.com/SweGortz/SmartCityIoT/blob/master/wiki/img/Screenshot_20170603-102415.png" width="150">
@@ -15,7 +15,7 @@ To test the application we recommend that you download it from [google play stor
 
 ### Prerequisites
 
-To be able to change the application, we recommend that you use the official IDE for Android: [Android studio](https://developer.android.com/studio/index.html).
+To be able to modify the application we recommend that you use the official IDE for Android: [Android studio](https://developer.android.com/studio/index.html).
 
 The application requires a google maps API key to be started. How to get the key and where it should be placed can be found in the following [gudie](https://developers.google.com/maps/documentation/android-api/signup)
 
