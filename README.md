@@ -15,7 +15,7 @@ To test the application we recommend that you download it from [google play stor
 
 ### Prerequisites
 
-To be able to run change the application , we recommend that you use the official IDE for Android [Android studio](https://developer.android.com/studio/index.html).
+To be able to change the application, we recommend that you use the official IDE for Android: [Android studio](https://developer.android.com/studio/index.html).
 
 The application requires a google maps API key to be started. How to get the key and where it should be placed can be found in the following [gudie](https://developers.google.com/maps/documentation/android-api/signup)
 
@@ -23,8 +23,8 @@ The application requires a google maps API key to be started. How to get the key
 
 To install the application on you phone you can do one of the following:
 
-1. Run the applicaiton on a [virtual device & your own phone by Android studio](https://developer.android.com/studio/run/index.html)
-2. Download the application from [play story](https://play.google.com/store/apps/details?id=org.gortz.greeniot.smartcityiot)
+1. Run the applicaiton on a [virtual device or your own phone through Android studio](https://developer.android.com/studio/run/index.html)
+2. Download the application from [Play store](https://play.google.com/store/apps/details?id=org.gortz.greeniot.smartcityiot)
 
 ## Contributing
 Please read the [developers guide](https://github.com/SweGortz/SmartCityIoT/wiki/Developers-guide) for details on the application structure, and the process for submitting pull requests to us.
@@ -32,7 +32,7 @@ Please read the [developers guide](https://github.com/SweGortz/SmartCityIoT/wiki
 ## Authors
 
 * **Adrian Gortzak** - *Developer* - [Adddrian](https://github.com/Adddrian)
-* **Jimmy Fjallid** - *Developer* - [jfjallid](https://github.com/jfjallid)
+* **Jimmy Fjällid** - *Developer* - [jfjallid](https://github.com/jfjallid)
 
 
 ## Built With
