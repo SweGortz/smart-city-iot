@@ -37,7 +37,7 @@ todo - link to wiki
 ## Authors
 
 * **Adrian Gortzak** - *Developer* - [Adddrian](https://github.com/Adddrian)
-* **Jimmy Fjallid** - *Developer* - [Adddrian](https://github.com/Adddrian)
+* **Jimmy Fjallid** - *Developer* - [jfjallid](https://github.com/jfjallid)
 
 
 ## Built With
