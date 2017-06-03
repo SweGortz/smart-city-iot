@@ -124,7 +124,7 @@ Copyright [yyyy] [name of copyright owner]
 
 ## License
 
-### Smart city IOT
+### Smart city IoT
 #### Copyright 2017 Gortz
 
    Licensed under the Apache License, Version 2.0 (the "License");
