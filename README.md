@@ -10,6 +10,8 @@ To test the application we recommend that you download it from [google play stor
 
 To be able to run change the application , we recommend that you use the official IDE for Android [Android studio](https://developer.android.com/studio/index.html).
 
+The application requries a google maps API key to be started. How to get the key and where it should be placed can be found in the following [gudie](https://developers.google.com/maps/documentation/android-api/signup)
+
 ### Installing
 
 To install the application on you phone you can do one of the following:
