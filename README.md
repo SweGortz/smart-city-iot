@@ -7,9 +7,7 @@ todo
 
 ### Prerequisites
 
-To contribute to the project, we recommend that you use The official IDE for Android.
-[Android studio](https://developer.android.com/studio/index.html) 
-
+To contribute to the project, we recommend that you use the official IDE for Android [Android studio](https://developer.android.com/studio/index.html).
 
 ### Installing
 
