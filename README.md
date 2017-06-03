@@ -4,7 +4,7 @@ Smart City IoT is a visualization tool for IoT data.
 
 ## Getting Started
 
-To test the application we recommend that you download it from [google play store](todo) and then follow the [usage guide in the wiki](todo)
+To test the application we recommend that you download it from [google play store](https://play.google.com/store/apps/details?id=org.gortz.greeniot.smartcityiot) and then follow the [usage guide in the wiki](todo)
 
 ### Prerequisites
 
@@ -17,7 +17,7 @@ The application requires a google maps API key to be started. How to get the key
 To install the application on you phone you can do one of the following:
 
 1. Run the applicaiton on a [virtual device & your own phone by Android studio](https://developer.android.com/studio/run/index.html)
-2. Download the application from [play story](todo)
+2. Download the application from [play story](https://play.google.com/store/apps/details?id=org.gortz.greeniot.smartcityiot)
 
 ## Contributing
 Please read the [developers guide](https://github.com/SweGortz/SmartCityIoT/wiki/Developers-guide) for details on the application structure, and the process for submitting pull requests to us.
