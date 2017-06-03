@@ -37,7 +37,7 @@ Please read the [developers guide](https://github.com/SweGortz/SmartCityIoT/wiki
 
 ## License
 
-### Smart city IoT
+### Smart City IoT
 #### Copyright 2017 Gortz
 
    Licensed under the Apache License, Version 2.0 (the "License");
