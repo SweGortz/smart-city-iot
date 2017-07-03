@@ -2,14 +2,18 @@ package org.gortz.greeniot.smartcityiot.activity;
 
 import android.Manifest;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import org.gortz.greeniot.smartcityiot.model.Util;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
@@ -67,9 +71,18 @@ public class SensorActivity extends BaseActivity implements CommunicationChannel
         }
         switch (getIntent().getExtras().getString("start").toString()){
             case "map":
-                if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION}, MY_PERMISSIONS_REQUEST_LOCATION);
-                }else{
+                if(!Util.selfPermissionGranted(this, Manifest.permission.ACCESS_FINE_LOCATION) && !Util.selfPermissionGranted(this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, MY_PERMISSIONS_REQUEST_LOCATION);
+                    } else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "Missing permission for " + Manifest.permission.ACCESS_FINE_LOCATION + " or " + Manifest.permission.ACCESS_COARSE_LOCATION;
+                        int duration = Toast.LENGTH_LONG;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
+                }
+                else{
                     startSensorMapFragment();
                 }
                 break;
