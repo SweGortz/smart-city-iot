@@ -56,12 +56,12 @@ public class MQTTFragment extends Fragment {
         passwordEditText = (EditText) v.findViewById(R.id.passwordEditText);
 
         topicStructureSpinner = (Spinner) v.findViewById(R.id.topic_structure_spinner);
-        ArrayAdapter<String> topicAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, activity.getAllTopicStructuresByType(CONNECTION_GROUP));
+        ArrayAdapter<String> topicAdapter = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_spinner_item, activity.getAllTopicStructuresByType(CONNECTION_GROUP));
         topicAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         topicStructureSpinner.setAdapter(topicAdapter);
 
         dataStructureSpinner = (Spinner) v.findViewById(R.id.data_structure_spinner);
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, activity.getAllDataStructuresByType(CONNECTION_GROUP));
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_spinner_item, activity.getAllDataStructuresByType(CONNECTION_GROUP));
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dataStructureSpinner.setAdapter(dataAdapter);
 

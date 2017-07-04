@@ -44,7 +44,7 @@ public class TypeAliasFragment extends Fragment {
         aliasNameTextView = (TextView) v.findViewById(R.id.alias_name);
 
         aliasSpinner = (Spinner) v.findViewById(R.id.alias_spinner);
-        ArrayAdapter<String> aliasAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, activity.getAllSensorTypeNames());
+        ArrayAdapter<String> aliasAdapter = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_spinner_item, activity.getAllSensorTypeNames());
         aliasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         aliasSpinner.setAdapter(aliasAdapter);
 

@@ -383,7 +383,7 @@ public class SensorDataDAO {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                 try {
                     mCalendar.setTime(dateFormat.parse(sensorValuesForTypeCursor.getString(1)));
-                    mCalendar.add(Calendar.HOUR, 2); //TODO should not have to do this. Something is wrong in conversion
+                    mCalendar.add(Calendar.HOUR_OF_DAY, 2); //TODO should not have to do this. Something is wrong in conversion
                     node.addValue(mCalendar, sensorValuesForTypeCursor.getDouble(0));
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -2,7 +2,6 @@ package org.gortz.greeniot.smartcityiot.fragments.sensors;
 
 import android.Manifest;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.location.Location;
 import android.location.LocationManager;
@@ -40,6 +39,7 @@ import org.gortz.greeniot.smartcityiot.database.entity.SensorLimits;
 import org.gortz.greeniot.smartcityiot.database.entity.SensorType;
 import org.gortz.greeniot.smartcityiot.dto.sensors.SensorTypeNode;
 import org.gortz.greeniot.smartcityiot.fragments.sensors.base.SensorOptionFragment;
+import org.gortz.greeniot.smartcityiot.model.Util;
 
 /**
  * Visualization of sensor data on a map.
@@ -87,8 +87,13 @@ public class MapFragment extends SensorOptionFragment {
                 if (cp != null) {
                     getMap().moveCamera(CameraUpdateFactory.newCameraPosition(cp));
                 } else {
-                    if (getActivity().checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && getActivity().checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                        getMap().setMyLocationEnabled(true);
+                    if (Util.selfPermissionGranted(activity, Manifest.permission.ACCESS_FINE_LOCATION) && Util.selfPermissionGranted(activity, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+                        try{
+                            getMap().setMyLocationEnabled(true);
+                        }
+                        catch (SecurityException e){
+                            e.printStackTrace();
+                        }
                     }
 
                     Location bestCurrentLocation = getBestCurrentLocation();
@@ -106,29 +111,35 @@ public class MapFragment extends SensorOptionFragment {
         return v;
     }
 
-
     private Location getBestCurrentLocation() {
         LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-        if (getActivity().checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && getActivity().checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            Location locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            Location locationNet = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        if (Util.selfPermissionGranted(activity, Manifest.permission.ACCESS_FINE_LOCATION)  && Util.selfPermissionGranted(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION)) {
+            try{
+                Location locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                Location locationNet = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 
-            long GPSLocationTime = 0;
-            if (null != locationGPS) { GPSLocationTime = locationGPS.getTime(); }
+                long GPSLocationTime = 0;
+                if (null != locationGPS) { GPSLocationTime = locationGPS.getTime(); }
 
-            long NetLocationTime = 0;
+                long NetLocationTime = 0;
 
-            if (null != locationNet) {
-                NetLocationTime = locationNet.getTime();
+                if (null != locationNet) {
+                    NetLocationTime = locationNet.getTime();
+                }
+
+                if ( 0 < GPSLocationTime - NetLocationTime ) {
+                    return locationGPS;
+                }
+                else {
+                    return locationNet;
+                }
             }
-
-            if ( 0 < GPSLocationTime - NetLocationTime ) {
-                return locationGPS;
+            catch(SecurityException e){
+                e.printStackTrace();
+                return defaultStartPosition;
             }
-            else {
-                return locationNet;
-            }
-        }else {
+        }
+        else {
             return defaultStartPosition;
         }
     }
@@ -160,11 +171,11 @@ public class MapFragment extends SensorOptionFragment {
     }
 
     private void setUpCluster() {
-        while (getContext() == null) {
+        while (activity.getApplicationContext() == null) {
         }
 
-        mClusterManager = new ClusterManager<>(getContext(), getMap());
-        renderer = new MyClusterRenderer(getContext(), getMap(), mClusterManager);
+        mClusterManager = new ClusterManager<>(activity.getApplicationContext(), getMap());
+        renderer = new MyClusterRenderer(activity.getApplicationContext(), getMap(), mClusterManager);
         mClusterManager.setRenderer(renderer);
 
 

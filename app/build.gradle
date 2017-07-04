@@ -5,11 +5,11 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "org.gortz.greeniot.smartcityiot"
-        minSdkVersion 23
+        minSdkVersion 22
         targetSdkVersion 24
         multiDexEnabled true
-        versionCode 3
-        versionName "0.3"
+        versionCode 4
+        versionName "0.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -36,11 +36,11 @@ dependencies {
 
 
     compile 'org.springframework.android:spring-android-rest-template:2.0.0.M3'
-    compile 'com.android.support:appcompat-v7:25.1.1'
-    compile 'com.android.support:design:25.3.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.maps.android:android-maps-utils:0.5'
-    compile 'com.google.android.gms:play-services-maps:10.0.1'
+    compile 'com.google.android.gms:play-services-maps:10.2.4'
     compile 'com.jjoe64:graphview:4.2.1'
     compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.1'
     compile 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
