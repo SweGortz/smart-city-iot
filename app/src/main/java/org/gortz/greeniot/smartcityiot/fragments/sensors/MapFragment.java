@@ -2,7 +2,6 @@ package org.gortz.greeniot.smartcityiot.fragments.sensors;
 
 import android.Manifest;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.location.Location;
 import android.location.LocationManager;
@@ -88,7 +87,7 @@ public class MapFragment extends SensorOptionFragment {
                 if (cp != null) {
                     getMap().moveCamera(CameraUpdateFactory.newCameraPosition(cp));
                 } else {
-                    if (Util.selfPermissionGranted(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) && Util.selfPermissionGranted(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION)) {
+                    if (Util.selfPermissionGranted(activity, Manifest.permission.ACCESS_FINE_LOCATION) && Util.selfPermissionGranted(activity, Manifest.permission.ACCESS_COARSE_LOCATION)) {
                         try{
                             getMap().setMyLocationEnabled(true);
                         }
@@ -112,10 +111,9 @@ public class MapFragment extends SensorOptionFragment {
         return v;
     }
 
-
     private Location getBestCurrentLocation() {
         LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-        if (Util.selfPermissionGranted(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)  && Util.selfPermissionGranted(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION)) {
+        if (Util.selfPermissionGranted(activity, Manifest.permission.ACCESS_FINE_LOCATION)  && Util.selfPermissionGranted(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION)) {
             try{
                 Location locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 Location locationNet = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
@@ -138,13 +136,12 @@ public class MapFragment extends SensorOptionFragment {
             }
             catch(SecurityException e){
                 e.printStackTrace();
+                return defaultStartPosition;
             }
         }
         else {
             return defaultStartPosition;
         }
-
-        return defaultStartPosition;
     }
 
     private void setCurrentLocationButtonStyle(){

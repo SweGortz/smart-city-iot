@@ -8,8 +8,8 @@ android {
         minSdkVersion 22
         targetSdkVersion 24
         multiDexEnabled true
-        versionCode 3
-        versionName "0.3"
+        versionCode 4
+        versionName "0.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -21,18 +21,6 @@ android {
             debuggable false
         }
 
-    }
-    packagingOptions {
-        exclude 'META-INF/DEPENDENCIES.txt'
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/notice.txt'
-        exclude 'META-INF/license.txt'
-        exclude 'META-INF/dependencies.txt'
-        exclude 'META-INF/LGPL2.1'
     }
 }
 
@@ -48,11 +36,11 @@ dependencies {
 
 
     compile 'org.springframework.android:spring-android-rest-template:2.0.0.M3'
-    compile 'com.android.support:appcompat-v7:25.1.1'
-    compile 'com.android.support:design:25.3.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.maps.android:android-maps-utils:0.5'
-    compile 'com.google.android.gms:play-services-maps:10.0.1'
+    compile 'com.google.android.gms:play-services-maps:10.2.4'
     compile 'com.jjoe64:graphview:4.2.1'
     compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.1'
     compile 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'

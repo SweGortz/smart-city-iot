@@ -11,17 +11,17 @@ public final class Util {
 
     public static boolean selfPermissionGranted(Activity activity, String permission){
         int targetSdkVersion = activity.getApplicationInfo().targetSdkVersion;
-        // For Android < Android M, self permissions are always granted.
+        // For Android versions before Marshmallow, self permissions are always granted.
         boolean result = true;
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
 
             if(targetSdkVersion >= Build.VERSION_CODES.M){
-                // targetSDKVersion >= Android M, we can use Context#checkSelfPermission
+                // targetSDKVersion >= Android Marshmallow, we can use Context#checkSelfPermission
                 result = activity.getApplicationContext().checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED;
             }
             else{
-                // targetSdkVersion < Android M, we have to use PermissionChecker
+                // targetSdkVersion < Android Marshmallow, we have to use PermissionChecker
                 result = PermissionChecker.checkSelfPermission(activity.getApplicationContext(), permission) == PermissionChecker.PERMISSION_GRANTED;
             }
         }
