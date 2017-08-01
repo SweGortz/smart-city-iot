@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "org.gortz.greeniot.smartcityiot"
+        applicationId "org.gortz.greeniot.smartcityiot2"
         minSdkVersion 22
         targetSdkVersion 24
         multiDexEnabled true

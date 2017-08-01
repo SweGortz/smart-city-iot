@@ -45,7 +45,7 @@
             android:layout_marginTop="@dimen/divider_margin_top"
             android:background="@android:color/darker_gray" />
 
-        <org.gortz.greeniot.smartcityiot.view.NonScrollListView
+        <org.gortz.greeniot.smartcityiot2.view.NonScrollListView
             android:id="@+id/mqtt_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -82,7 +82,7 @@
             android:layout_marginTop="@dimen/divider_margin_top"
             android:background="@android:color/darker_gray" />
 
-        <org.gortz.greeniot.smartcityiot.view.NonScrollListView
+        <org.gortz.greeniot.smartcityiot2.view.NonScrollListView
             android:id="@+id/api_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
