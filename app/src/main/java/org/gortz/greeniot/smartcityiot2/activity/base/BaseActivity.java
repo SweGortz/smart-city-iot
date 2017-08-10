@@ -16,6 +16,7 @@ import android.view.View;
 import org.gortz.greeniot.smartcityiot2.R;
 import org.gortz.greeniot.smartcityiot2.activity.SensorActivity;
 import org.gortz.greeniot.smartcityiot2.activity.SettingsActivity;
+import org.gortz.greeniot.smartcityiot2.fragments.settings.AboutFragment;
 
 /**
  * Base activity to handle all basic features features of an activity
@@ -131,6 +132,11 @@ public class BaseActivity  extends AppCompatActivity implements NavigationView.O
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    public void goToFragment(Fragment fragment){
+        setCurrentFragment(fragment);
+        String currentFragmentName = getCurrentFragment().getClass().getSimpleName();
+        setFragmentOnBackStack(fragment, currentFragmentName);
+    }
 
     /**
      * Change fragment without  history it can go back to
@@ -215,6 +221,11 @@ public class BaseActivity  extends AppCompatActivity implements NavigationView.O
             changeActivity(SensorActivity.class,"list");
         } else if (id == R.id.nav_settings) {
             changeActivity(SettingsActivity.class);
+        }
+        else if(id == R.id.nav_about){
+            setCurrentFragment(new AboutFragment());
+            String currentFragmentName = getCurrentFragment().getClass().getSimpleName();
+            setFragmentOnBackStack(getCurrentFragment(), currentFragmentName);
         }
         closeMenuNav();
         return true;

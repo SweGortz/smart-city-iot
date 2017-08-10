@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import org.gortz.greeniot.smartcityiot2.fragments.settings.AboutFragment;
 import org.gortz.greeniot.smartcityiot2.model.Util;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
@@ -113,6 +114,11 @@ public class SensorActivity extends BaseActivity implements CommunicationChannel
             setFragmentOnBackStack(getCurrentFragment(), currentFragmentName);
         } else if (id == R.id.nav_settings) {
             changeActivity(SettingsActivity.class);
+        }
+        else if(id == R.id.nav_about){
+            String currentFragmentName = getCurrentFragment().getClass().getSimpleName();
+            setCurrentFragment(new AboutFragment());
+            setFragmentOnBackStack(getCurrentFragment(), currentFragmentName);
         }
 
         closeMenuNav();

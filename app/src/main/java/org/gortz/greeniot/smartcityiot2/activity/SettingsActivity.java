@@ -65,7 +65,7 @@ public class SettingsActivity extends BaseActivity implements SettingsFragment.S
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, 0, 0, "About");
+        //menu.add(0, 0, 0, "About");
         return true;
     }
 
@@ -329,12 +329,6 @@ public class SettingsActivity extends BaseActivity implements SettingsFragment.S
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context, toastMessage, duration);
         toast.show();
-    }
-
-    @Override
-    public void goToFragment(Fragment fragment) {
-        String currentFragmentName = getCurrentFragment().getClass().getSimpleName();
-        setFragmentOnBackStack(fragment, currentFragmentName);
     }
 
     @Override

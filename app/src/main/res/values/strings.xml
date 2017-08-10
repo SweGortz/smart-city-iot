@@ -9,4 +9,5 @@
     <string name="mqtt_topic_hint">To start point of /sensors/topic_hint</string>
     <string name="load_screen_titel">Smart City IoT</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="authors">Jimmy Fjällid\n Adrian Gortzak</string>
 </resources>
