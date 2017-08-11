@@ -56,7 +56,6 @@ public class SensorActivity extends BaseActivity implements CommunicationChannel
     private SensorDataHandler sensorList = SensorDataHandler.getInstance();
     private Collection<Connection> apiConnections = new ArrayList<>();
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
-    private int sensorTypeSelected = -1;
     private HashMap<Integer, Integer> optionsMenuItemsMap = new HashMap<>();
 
 
@@ -208,14 +207,17 @@ public class SensorActivity extends BaseActivity implements CommunicationChannel
     private Menu createMenu(Menu menu){
         int i = 0;
         for (SensorType s : sensorTypes.values()) {
-            if(sensorTypeSelected == -1) sensorTypeSelected = s.getId();
             menu.add(0, (int) s.getId(), 0, s.getName());
             optionsMenuItemsMap.put(s.getId(), i);
             i++;
         }
         menu.setGroupCheckable(0,true,true);
-        menu.getItem(optionsMenuItemsMap.get(sensorTypeSelected)).setChecked(true);
+        menu.getItem(optionsMenuItemsMap.get(currentSensorTypeID)).setChecked(true);
         return menu;
+    }
+
+    public SensorType getSelectedSensorType(){
+        return sensorTypes.get(currentSensorTypeID);
     }
 
     /**
@@ -306,7 +308,7 @@ public class SensorActivity extends BaseActivity implements CommunicationChannel
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        sensorTypeSelected = id;
+        //currentSensorTypeID = id;
         item.setChecked(true);
         ((SensorOptionFragment) getCurrentFragment()).changeViewOption(id);
         return super.onOptionsItemSelected(item);

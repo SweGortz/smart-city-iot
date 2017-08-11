@@ -34,11 +34,15 @@ public class SensorsFragment extends SensorOptionFragment implements Communicati
     private String[] sensorNames;
     private String[] organizationNames;
     private boolean fromMapCluster = false;
+    TextView sensorTypeSelected;
 
     @Override
     public void changeViewOption(int viewOption) {
         System.out.println("View option: " + viewOption);
         lv.setAdapter(new ListviewContactAdapter(getActivity(), new ArrayList<>(activity.getSensorDataOfType(viewOption))));
+        String sensorTypeName = activity.getSelectedSensorType().getName();
+        sensorTypeName = sensorTypeName.substring(0,1).toUpperCase() + sensorTypeName.substring(1);
+        sensorTypeSelected.setText(sensorTypeName);
         sensorType = activity.getSensorTypeByID(viewOption);
         System.out.println("Standard sensor type: " + sensorType.getId());
     }
@@ -52,6 +56,8 @@ public class SensorsFragment extends SensorOptionFragment implements Communicati
         View v = inflater.inflate(R.layout.sensors_view, container, false);
         lv = (ListView)v.findViewById(android.R.id.list);
         lv.setOnItemClickListener(new OnSensorItemClickListener());
+
+        sensorTypeSelected = (TextView) v.findViewById(R.id.sensorListTypeSelected);
 
         Bundle args = getArguments();
         if(args != null){
@@ -72,6 +78,11 @@ public class SensorsFragment extends SensorOptionFragment implements Communicati
             lv.setAdapter(listViewContactAdapter);
             sensorType = activity.getSensorTypeByID(activity.getCurrentSensorTypeId());
         }
+
+        String sensorTypeName = activity.getSelectedSensorType().getName();
+        sensorTypeName = sensorTypeName.substring(0,1).toUpperCase() + sensorTypeName.substring(1);
+        sensorTypeSelected.setText(sensorTypeName);
+
         return v;
     }
 
