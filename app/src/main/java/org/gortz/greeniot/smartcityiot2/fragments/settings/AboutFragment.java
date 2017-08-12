@@ -11,22 +11,25 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.gortz.greeniot.smartcityiot2.R;
-import org.gortz.greeniot.smartcityiot2.activity.SettingsActivity;
+import org.gortz.greeniot.smartcityiot2.activity.base.BaseActivity;
+
 
 /**
  * "About" screen
  */
 public class AboutFragment extends Fragment {
-    private SettingsActivity activity;
+    private BaseActivity activity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.about_view, container, false);
-        this.activity = (SettingsActivity) getActivity();
+        this.activity = (BaseActivity) getActivity();
+        activity.invalidateOptionsMenu();
         activity.hideDrawer();
 
         Button licenseButton = (Button) v.findViewById(R.id.licenses);
         TextView versionNumber = (TextView) v.findViewById(R.id.version_number);
+
 
         try{
             PackageInfo pInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
@@ -45,8 +48,7 @@ public class AboutFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            activity.setCurrentFragment(new LicensesFragment());
-            activity.goToFragment(activity.getCurrentFragment());
+            activity.goToFragment(new LicensesFragment());
         }
     }
 

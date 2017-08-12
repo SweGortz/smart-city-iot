@@ -44,8 +44,8 @@ public class TypeAliasFragment extends Fragment {
         aliasNameTextView = (TextView) v.findViewById(R.id.alias_name);
 
         aliasSpinner = (Spinner) v.findViewById(R.id.alias_spinner);
-        ArrayAdapter<String> aliasAdapter = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_spinner_item, activity.getAllSensorTypeNames());
-        aliasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> aliasAdapter = new ArrayAdapter<String>(activity.getApplicationContext(), R.layout.spinner_item, activity.getAllSensorTypeNames());
+        aliasAdapter.setDropDownViewResource(R.layout.spinner_item);
         aliasSpinner.setAdapter(aliasAdapter);
 
         Bundle args = getArguments();
@@ -54,6 +54,12 @@ public class TypeAliasFragment extends Fragment {
             typeAliasID = args.getInt("id");
             sensorTypeID = args.getInt("typeID");
             aliasNameTextView.setText(args.getString("name"));
+            int intColor = aliasNameTextView.getCurrentTextColor();
+            System.out.println("color id is: " + intColor);
+            //System.out.println("color is: " + activity.getColor(color));
+            //int intColor = -16776961;
+            String hexColor = "#" + Integer.toHexString(intColor).substring(2);
+            System.out.println("color is: " + hexColor);
 
             aliasSpinner.setSelection(activity.getSensorTypeNameListID(sensorTypeID));
             aliasSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

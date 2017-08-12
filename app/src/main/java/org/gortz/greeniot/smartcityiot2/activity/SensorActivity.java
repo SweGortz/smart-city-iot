@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import org.gortz.greeniot.smartcityiot2.fragments.settings.AboutFragment;
 import org.gortz.greeniot.smartcityiot2.model.Util;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
@@ -55,6 +56,7 @@ public class SensorActivity extends BaseActivity implements CommunicationChannel
     private SensorDataHandler sensorList = SensorDataHandler.getInstance();
     private Collection<Connection> apiConnections = new ArrayList<>();
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
+    private HashMap<Integer, Integer> optionsMenuItemsMap = new HashMap<>();
 
 
     @Override
@@ -111,6 +113,11 @@ public class SensorActivity extends BaseActivity implements CommunicationChannel
             setFragmentOnBackStack(getCurrentFragment(), currentFragmentName);
         } else if (id == R.id.nav_settings) {
             changeActivity(SettingsActivity.class);
+        }
+        else if(id == R.id.nav_about){
+            String currentFragmentName = getCurrentFragment().getClass().getSimpleName();
+            setCurrentFragment(new AboutFragment());
+            setFragmentOnBackStack(getCurrentFragment(), currentFragmentName);
         }
 
         closeMenuNav();
@@ -198,10 +205,19 @@ public class SensorActivity extends BaseActivity implements CommunicationChannel
      * @return the new menu
      */
     private Menu createMenu(Menu menu){
+        int i = 0;
         for (SensorType s : sensorTypes.values()) {
             menu.add(0, (int) s.getId(), 0, s.getName());
+            optionsMenuItemsMap.put(s.getId(), i);
+            i++;
         }
+        menu.setGroupCheckable(0,true,true);
+        menu.getItem(optionsMenuItemsMap.get(currentSensorTypeID)).setChecked(true);
         return menu;
+    }
+
+    public SensorType getSelectedSensorType(){
+        return sensorTypes.get(currentSensorTypeID);
     }
 
     /**
@@ -292,6 +308,8 @@ public class SensorActivity extends BaseActivity implements CommunicationChannel
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        //currentSensorTypeID = id;
+        item.setChecked(true);
         ((SensorOptionFragment) getCurrentFragment()).changeViewOption(id);
         return super.onOptionsItemSelected(item);
     }

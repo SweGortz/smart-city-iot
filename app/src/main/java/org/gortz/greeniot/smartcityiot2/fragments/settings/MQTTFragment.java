@@ -56,13 +56,13 @@ public class MQTTFragment extends Fragment {
         passwordEditText = (EditText) v.findViewById(R.id.passwordEditText);
 
         topicStructureSpinner = (Spinner) v.findViewById(R.id.topic_structure_spinner);
-        ArrayAdapter<String> topicAdapter = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_spinner_item, activity.getAllTopicStructuresByType(CONNECTION_GROUP));
-        topicAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> topicAdapter = new ArrayAdapter<String>(activity.getApplicationContext(), R.layout.spinner_item, activity.getAllTopicStructuresByType(CONNECTION_GROUP));
+        topicAdapter.setDropDownViewResource(R.layout.spinner_item);
         topicStructureSpinner.setAdapter(topicAdapter);
 
         dataStructureSpinner = (Spinner) v.findViewById(R.id.data_structure_spinner);
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_spinner_item, activity.getAllDataStructuresByType(CONNECTION_GROUP));
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(activity.getApplicationContext(), R.layout.spinner_item, activity.getAllDataStructuresByType(CONNECTION_GROUP));
+        dataAdapter.setDropDownViewResource(R.layout.spinner_item);
         dataStructureSpinner.setAdapter(dataAdapter);
 
         Bundle args = getArguments();
@@ -96,22 +96,26 @@ public class MQTTFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
+            int portNumber;
             Boolean error = false;
             if(urlEditText.getText().toString().matches("")){
                 error = true;
                 urlEditText.setError("You must enter a URL!");
-            }
-            if(portEditText.getText().toString().matches("")){
-                error = true;
-                portEditText.setError("You must enter a Port number!");
             }
             if(topicEditText.getText().toString().matches("")){
                 error = true;
                 topicEditText.setError("You must enter a Topic!");
             }
             if(!error){
+                if(portEditText.getText().toString().matches("")){
+                    portNumber = 1883; // default port
+                }
+                else{
+                    portNumber = Integer.valueOf(portEditText.getText().toString());
+                }
+
                 if(!update){
-                    Connection mqttConnection = new Connection(CONNECTION_TYPE, urlEditText.getText().toString(), Integer.valueOf(portEditText.getText().toString()),topicEditText.getText().toString(),usernameEditText.getText().toString(),passwordEditText.getText().toString(),true, new TopicStructure(((SpinnerItemEntry<Integer, String>)topicStructureSpinner.getSelectedItem()).getKey()), new DataStructure(((SpinnerItemEntry<Integer, String>)dataStructureSpinner.getSelectedItem()).getKey()));
+                    Connection mqttConnection = new Connection(CONNECTION_TYPE, urlEditText.getText().toString(), portNumber,topicEditText.getText().toString(),usernameEditText.getText().toString(),passwordEditText.getText().toString(),true, new TopicStructure(((SpinnerItemEntry<Integer, String>)topicStructureSpinner.getSelectedItem()).getKey()), new DataStructure(((SpinnerItemEntry<Integer, String>)dataStructureSpinner.getSelectedItem()).getKey()));
                     activity.addConnection(mqttConnection);
                }else {
                     connectionItem.setUrl(urlEditText.getText().toString());

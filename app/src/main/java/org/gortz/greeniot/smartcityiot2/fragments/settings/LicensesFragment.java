@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import org.gortz.greeniot.smartcityiot2.R;
-import org.gortz.greeniot.smartcityiot2.activity.SettingsActivity;
+import org.gortz.greeniot.smartcityiot2.activity.base.BaseActivity;
 import org.gortz.greeniot.smartcityiot2.dto.listitems.License;
 import org.gortz.greeniot.smartcityiot2.view.NonScrollListView;
 
@@ -20,14 +20,14 @@ import java.util.ArrayList;
  * Display of all licenses
  */
 public class LicensesFragment extends Fragment {
-    SettingsActivity activity;
+    BaseActivity activity;
     NonScrollListView licenseList;
     ArrayList<License> licenses = new ArrayList();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.license_view, container, false);
-        activity = (SettingsActivity) getActivity();
+        activity = (BaseActivity) getActivity();
         activity.hideDrawer();
 
         loadLicenses();

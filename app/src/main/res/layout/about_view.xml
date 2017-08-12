@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/fragment_frame_margin"
@@ -42,6 +43,31 @@
 
     <View
         android:id="@+id/view16"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/divider_margin_top"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Authors"
+        android:textAlignment="center"
+        android:textSize="@dimen/topic_size"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/authors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/authors"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold|italic" />
+
+    <View
+        android:id="@+id/view18"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="@dimen/divider_margin_top"

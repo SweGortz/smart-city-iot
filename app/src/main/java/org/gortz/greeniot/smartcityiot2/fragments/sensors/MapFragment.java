@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -57,6 +58,7 @@ public class MapFragment extends SensorOptionFragment {
     private CameraPosition cp;
     private final Handler mHandler = new Handler();
     private Runnable mTimer1;
+    private TextView sensorTypeText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
@@ -73,12 +75,13 @@ public class MapFragment extends SensorOptionFragment {
         defaultStartPosition.setLatitude(59.857828);
         defaultStartPosition.setLongitude(17.646929);
 
-
         try {
             MapsInitializer.initialize(getActivity().getApplicationContext());
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        sensorTypeText = (TextView) v.findViewById(R.id.sensorType);
 
         mMapView.getMapAsync(new OnMapReadyCallback() {
             @Override
@@ -107,6 +110,9 @@ public class MapFragment extends SensorOptionFragment {
                 setUpCluster();
             }
         });
+        String sensorTypeName = activity.getSelectedSensorType().getName();
+        sensorTypeName = sensorTypeName.substring(0,1).toUpperCase() + sensorTypeName.substring(1);
+        sensorTypeText.setText(sensorTypeName);
 
         return v;
     }
@@ -254,6 +260,9 @@ public class MapFragment extends SensorOptionFragment {
         //Log.i(TAG,String.valueOf(sensorTypeId));
         clusterManagerClearAll();
         activity.setCurrentSensorTypeId(sensorTypeId);
+        String sensorTypeName = activity.getSensorTypeByID(sensorTypeId).getName();
+        sensorTypeName = sensorTypeName.substring(0,1).toUpperCase() + sensorTypeName.substring(1);
+        sensorTypeText.setText(sensorTypeName);
         getSensorDataOfTypeToClusterManager(sensorTypeId, mClusterManager);
         setCameraIdleListenerAndMarkerClickListener(mClusterManager);
 
