@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:digits="0123456789"
         android:ems="10"
-        android:hint="Port"
+        android:hint="Port (default is 1883)"
         android:inputType="number"
         android:maxLength="5"
         android:numeric="integer"
